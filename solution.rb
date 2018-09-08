@@ -3,18 +3,8 @@ require 'sinatra'
 
 
 get '/' do
-  erb :index
+  @respuesta=request.env["HTTP_USER_AGENT"]
+  erb :respuesta
 end
 
-post '/' do
-  @res = params[:respuesta]
-  #binding.pry
-  if @res==@res.upcase
-    @respuesta="Ahhh si, manzanas!"
-    erb :respuesta    
-  else
-    @respuesta="Habla más duro mijito"
-    erb :respuesta
-  end
 
-end
