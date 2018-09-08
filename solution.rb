@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'pry'
+
 
 get '/' do
   @num = (params[:num] ? params[:num] : 0) 
