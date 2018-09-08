@@ -2,16 +2,12 @@ require 'sinatra'
 require 'pry'
 
 get '/' do
-  @num = if request.cookies['number']
-           request.cookies['number'].to_i
-         else
-           0
-         end
+  @num=0
   erb :index
 end
 
-post '/' do
-  response.set_cookie('number', params[:number].to_i + 1)
-  @num = request.cookies['number'].to_i
-  redirect '/'
+post '/:number' do
+  @num = params[:number].to_i
+  @num+=1
+  erb :index
 end
