@@ -1,13 +1,20 @@
 require 'sinatra'
+#require 'pry'
 
 
 get '/' do
-  @num = (params[:num] ? params[:num] : 0) 
   erb :index
 end
 
 post '/' do
-  @num = params[:number].to_i
-  @num+=1
-  redirect "/?num=#{@num}"
+  @res = params[:respuesta]
+  #binding.pry
+  if @res==@res.upcase
+    @respuesta="Ahhh si, manzanas!"
+    erb :respuesta    
+  else
+    @respuesta="Habla más duro mijito"
+    erb :respuesta
+  end
+
 end
