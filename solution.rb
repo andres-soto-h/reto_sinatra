@@ -6,11 +6,9 @@ get '/' do
   @respuesta=request.env["HTTP_PERMISO"]
   
   if @respuesta=="soy-un-token-secreto"
-    @texto="Si lo logramos!"
-    erb :respuesta    
+    puts "Si lo logramos!"
   else
-    @texto="No tiene permisos para ver el contenido"
-    erb :respuesta    
+    puts "No tiene permisos para ver el contenido"
   end
 
 end
