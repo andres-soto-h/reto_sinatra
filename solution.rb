@@ -6,9 +6,10 @@ get '/' do
   @respuesta=request.env["HTTP_PERMISO"]
   
   if @respuesta=="soy-un-token-secreto"
-    puts "Si lo logramos!"
+     "<p>Si lo logramos!</p>"
   else
-    puts "No tiene permisos para ver el contenido"
+    status 401
+    "<p>Sin Permiso</p>"
   end
 
 end
