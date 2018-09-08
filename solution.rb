@@ -2,12 +2,12 @@ require 'sinatra'
 require 'pry'
 
 get '/' do
-  @num=0
+  @num = (params[:num] ? params[:num] : 0) 
   erb :index
 end
 
-post '/:number' do
+post '/' do
   @num = params[:number].to_i
   @num+=1
-  erb :index
+  redirect "/?num=#{@num}"
 end
